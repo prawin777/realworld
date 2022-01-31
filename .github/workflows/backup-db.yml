@@ -2,7 +2,7 @@ name: Backup database on a CRON Schedule
 
 on:
   schedule:
-    - cron: '0 18 * * *'
+    - cron: '0 05 * * *'
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -11,15 +11,15 @@ jobs:
       - name: Backup Database
         uses: appleboy/ssh-action@master
         env:
-          MYSQL_HOSTNAME: $${{ secrets.MYSQL_HOSTNAME }}
-          MYSQL_DATABASE: $${{ secrets.MYSQL_DATABASE }}
-          MYSQL_USERNAME: $${{ secrets.MYSQL_USERNAME }}
-          MYSQL_PASSWORD: $${{ secrets.MYSQL_PASSWORD }}
-          MYSQL_PORT: $${{ secrets.MYSQL_PORT }}
-          USER: $${{ secrets.USER }}
-          AWS_ACCESS_KEY: $${{ secrets.AWS_ACCESS_KEY }}
-          AWS_SECRET_KEY: $${{ secrets.AWS_SECRET_KEY }}
-          S3_BUCKET: $${{ secrets.S3_BUCKET }}
+          MYSQL_HOSTNAME: ${{ secrets.MYSQL_HOSTNAME }}
+          MYSQL_DATABASE: ${{ secrets.MYSQL_DATABASE }}
+          MYSQL_USERNAME: ${{ secrets.MYSQL_USERNAME }}
+          MYSQL_PASSWORD: ${{ secrets.MYSQL_PASSWORD }}
+          MYSQL_PORT: ${{ secrets.MYSQL_PORT }}
+          USER: ${{ secrets.USER }}
+          AWS_ACCESS_KEY: ${{ secrets.AWS_ACCESS_KEY }}
+          AWS_SECRET_KEY: ${{ secrets.AWS_SECRET_KEY }}
+          S3_BUCKET: ${{ secrets.S3_BUCKET }}
 
         with:
           host: ${{ secrets.SSH_HOST }}

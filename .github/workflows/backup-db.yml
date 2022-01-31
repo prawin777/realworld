@@ -2,7 +2,7 @@ name: Backup database on a CRON Schedule
 
 on:
   schedule:
-    - cron: '0 05 * * *'
+    - cron: '57 05 * * *'
 jobs:
   build:
     runs-on: ubuntu-latest
